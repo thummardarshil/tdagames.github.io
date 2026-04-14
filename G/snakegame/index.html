@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Snake v8</title>
+  <link rel="icon" href="favicon.ico" type="image/png" />
+  <link rel="stylesheet" href="main.css" />
+</head>
+<div id="gameOverDialog" class="dialog hidden">
+  <div class="dialog-content">
+    <h2>Game Over 💀</h2>
+    <p id="finalScore"></p>
+    <div class="dialog-buttons">
+      <button id="restartBtn">🔄 Restart</button>
+      <button id="homeBtn">🏠 Home</button>
+    </div>
+  </div>
+</div>
+<body>
+  <!-- 🔥 Header -->
+  <header class="header">
+    <div class="logo">⚡ Snake v8</div>
+    <nav>
+      <button id="navHomeBtn">🏠 Home</button>
+      <button id="navRestartBtn">🔄 Restart</button>
+    </nav>
+  </header>
+  
+  <!-- Game Introduction -->
+  <div style="max-width:800px; margin:20px auto; background:rgba(0,0,0,0.8); padding:20px; border-radius:15px; color:#fff;">
+    <h2 style="margin-top:0; color:#4CAF50;">🐍 About Snake Game</h2>
+    <p style="line-height:1.6; font-size:14px;">
+      The classic Snake game is back! Control a growing snake as it hunts for food. Eat apples to grow longer and earn points, but don't crash into walls or your own tail! This timeless arcade game tests your reflexes and strategic planning. How long can you grow?
+    </p>
+    <p style="line-height:1.6; font-size:14px; margin-bottom:0;">
+      <strong>🎮 Features:</strong> Classic arcade gameplay • Smooth controls (Arrow keys or on-screen buttons) • Track your food and blocks traveled • Progressive difficulty as you grow • Mobile-friendly with touch controls
+    </p>
+  </div>
+
+  <!-- Game -->
+  <main>
+    <!-- #gameContainer is the main game board-->
+    <div id="gameContainer"></div>
+
+    <!-- Scoreboard -->
+    <div id="scoreContainer">
+      <div class="scoreBoard">🍎 Food: <span id="pointsEarned">0</span></div>
+      <div class="scoreBoard">⬜ Blocks: <span id="blocksTravelled">0</span></div>
+    </div>
+
+    <!-- On-screen controllers (mobile only) -->
+    <div id="onScreenControllers">
+      <button id="leftButton">◀️</button>
+      <div>
+        <button id="upButton">🔼</button>
+        <button id="downButton">🔽</button>
+      </div>
+      <button id="rightButton">▶️</button>
+    </div>
+  </main>
+  <script src="jscript.js"></script>
+  <script>
+    // Wrap original actions with ad logic
+    function goHomeAction() {
+      window.location.href = "../../index.html"; 
+    }
+
+    function restartGameAction() {
+      window.location.reload();
+    }
+
+    // Use buttons from dialog and header
+    const restartBtn = document.getElementById('restartBtn');
+    const homeBtn = document.getElementById('homeBtn');
+    const navRestartBtn = document.getElementById('navRestartBtn');
+    const navHomeBtn = document.getElementById('navHomeBtn');
+
+    restartBtn.addEventListener('click', restartGameAction);
+    homeBtn.addEventListener('click', goHomeAction);
+    navRestartBtn.addEventListener('click', restartGameAction);
+    navHomeBtn.addEventListener('click', goHomeAction);
+  </script>
+</body>
+</html>

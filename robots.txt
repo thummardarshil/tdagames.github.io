@@ -1,0 +1,11 @@
+# robots.txt for TDAgames
+# https://tdagames.github.io/
+
+User-agent: *
+Allow: /
+
+# Disallow admin or irrelevant paths (add more if needed)
+Disallow: /.git/
+
+# Sitemap location
+Sitemap: https://tdagames.github.io/sitemap.xml
